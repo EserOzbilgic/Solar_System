@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+body {
+    margin: 0;
+    height: 100vh;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    overflow: hidden;
+}
+.container {
+    font-size: 14px;
+    width: 50em;
+    height: 50em;
+    position: relative;
+}
+.sun {
+    position: absolute;
+    top: 15em;
+    left: 15em;
+    width: 10em;
+    height: 10em;
+    background-color: #FFE87C;
+    border-radius: 50%;
+    box-shadow: 0 0 4em rgba(212, 74, 40, 0.925);
+}
+.earth,.moon,.mars,.mercury{
+    position: absolute;
+    border-style: solid;
+    border-color: white transparent transparent transparent;
+    border-width: 0.1em 0.1em 0 0;
+    border-radius: 50%;
+}
+
+
+.earth {
+    top: 5em;
+    left: 5em;
+    width: 30em;
+    height: 30em; 
+    animation: orbit 36.5s linear infinite;   
+}
+.moon {
+    top: 0;
+    right: 0;
+    width: 8em;
+    height: 8em; 
+    animation: orbit 2.7s linear infinite;
+}
+.mars {
+    top: 6em;
+    left: 6em;
+    width: 18em;
+    height: 18em;
+    animation: orbit 63s linear infinite;
+}
+.mercury {
+    top: 8em;
+    left: 8em;
+    width: 14em;
+    height: 14em;
+    animation: orbit 11s linear infinite;
+}
+
+.earth::before,
+.moon::before,
+.mercury::before,
+.mars::before
+{
+    content: '';
+    position: absolute;
+    border-radius: 50%;
+}
+.earth::before {
+    top: 2.8em;
+    right: 2.8em;
+    width: 3em;
+    height: 3em;
+    background-color: #34A56F ;    
+}
+.moon::before {
+    top: 0.8em;
+    right: 0.2em;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: #F6F1D5;
+}
+.mars::before {
+    top: 1.5em;
+    right: 1.5em;
+    width: 2em;
+    height: 2em;
+    background-color: #e81320;
+}
+.mercury::before {
+    top: 1.2em;
+    right:1.4em;
+    width: 1.3em;
+    height: 1.2em;
+    background-color: #555; 
+}
+
+.star {
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+}
+@keyframes orbit {
+    to {
+        transform: rotate(360deg);
+    }
+}
+  </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sun"></div>
+        <div class="earth">
+          <div class="moon"></div>
+          <div class="mars"></div>
+          <div class="mercury"></div>
+        </div>
+        <script>
+            function createStars() {
+              const container = document.querySelector('body');
+              for (let i = 0; i < 1000; i++) { // Increase the number of stars to 1000
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = '.1px';
+                star.style.height = '.1px';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.left = Math.random() * 100 + '%';
+                container.appendChild(star);
+              }
+            }
+            createStars();
+          </script>
+        </body>
+        
+        </html>
+      </div>
+</body>
+</html>
